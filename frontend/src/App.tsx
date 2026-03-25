@@ -1,17 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import HeroSection from './sections/HeroSection'
+import AboutSection from './sections/AboutSection'
+import ProjectsSection from './sections/ProjectsSection'
+import SkillSection from './sections/SkillSection'
+import ContactSection from './sections/ContactSection'  
 import './index.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h2 className = "text-3xl font-bold">Hello, Vite + React!</h2>
-    </>
-  )
+    // 2. The main wrapper with global dark mode styling
+    <main className="bg-slate-950 text-slate-50 min-h-screen font-sans selection:bg-blue-500 selection:text-white">
+      
+      {/* 3. Render each section in the order you want them to appear */}
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <SkillSection />
+      <ContactSection />
+      
+    </main>
+  );
 }
 
 export default App

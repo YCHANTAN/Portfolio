@@ -8,8 +8,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-900 to-black opacity-80"></div>
       
       <div className="z-10 text-center px-4 max-w-4xl">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-          Hi, I'm <span className="text-blue-500">[Your Name]</span>.
+        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
+          Hi, I'm <span className="text-blue-500">Christian A. Osorno</span>.
         </h1>
         <p className="text-xl md:text-2xl text-slate-300 mx-auto leading-relaxed">
           Bridging the gap between scalable Software Engineering and complex Environmental Science.
