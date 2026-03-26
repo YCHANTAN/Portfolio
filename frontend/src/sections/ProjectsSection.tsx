@@ -13,6 +13,23 @@ const projects = [
     title: "In Silico Antifungal Molecule Design",
     description: "Computational biology research designing novel antifungal molecules against Candida auris using advanced in silico modeling techniques.",
     tech: ["Bioinformatics", "Computational Modeling", "Research"],
+  },
+  {
+    title: "EducAIte: AI-Powered Learning Platform",
+    description: "An innovative learning platform that leverages AI to provide personalized educational experiences and adaptive learning paths.",
+    tech: ["AI/ML", "React", "TypeScript", "Node.js", "C# .NET", "Tailwind CSS"],
+  },
+
+  {
+    title: "Maharlika Banking System",
+    description: "A modern banking system designed to provide seamless financial services with a focus on security and user experience.",
+    tech: ["Python", "SQL Server", "React", "TypeScript", "Tailwind CSS"],
+  },
+
+  {
+    title: "POS System for Small Businesses",
+    description: "A streamlined point-of-sale system tailored for small businesses, offering intuitive management and real-time inventory tracking.",
+    tech: ["C# .NET", "SQL Server", "React", "TypeScript", "Vanilla CSS"],
   }
 ];
 
