@@ -18,7 +18,7 @@ export default function HeroSection() {
             {/* Pill Badge */}
             <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-neutral-high/80 text-xs font-medium tracking-wide">
               <Sparkles size={14} className="text-white" />
-              SOFTWARE ENGINEER & ENVIRONMENTAL SCIENCE
+              SOFTWARE ENGINEER & UI / UX DESIGNER
             </div>
             
             {/* Giant Name with contrast styling */}
@@ -33,7 +33,7 @@ export default function HeroSection() {
 
             {/* Subtitle / Bio */}
             <p className="text-lg text-neutral-high/60 leading-relaxed max-w-lg">
-              Bridging the gap between scalable Software Engineering and complex Environmental Science. I help transform ideas into robust, functioning digital solutions. Let's build something great!
+              Bridging the gap between scalable Software Engineering and complex UI / UX Design. I help transform ideas into robust, functioning digital solutions. Let's build something great!
             </p>
 
             {/* Buttons */}
@@ -61,7 +61,7 @@ export default function HeroSection() {
               <p className="text-white text-sm font-medium leading-relaxed">
                 "Working with him was a game changer!"
               </p>
-              <p className="text-neutral-high/50 text-xs text-right mt-4">- pranaavnb</p>
+              <p className="text-neutral-high/50 text-xs text-right mt-4">- jorge</p>
             </div>
 
             {/* Floating Card 2 */}
@@ -69,7 +69,7 @@ export default function HeroSection() {
               <p className="text-white text-sm font-medium leading-relaxed">
                 "We increased our conversions by 200%"
               </p>
-              <p className="text-neutral-high/50 text-xs text-right mt-4">- vijaynb</p>
+              <p className="text-neutral-high/50 text-xs text-right mt-4">- james</p>
             </div>
           </div>
         </div>

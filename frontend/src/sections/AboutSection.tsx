@@ -2,12 +2,12 @@ import { Github, Linkedin, Mail, Twitter, Instagram, Dribbble, Target } from 'lu
 
 // Data for the tags and experience list (can be moved to a separate file or data folder)
 const skillsTags = [
-  "React", "TypeScript", "C# .NET", "UI/UX Design", "PostgreSQL", "Tailwind CSS", "RESTful APIs", "Agile", "In Silico Modeling"
+  "React", "TypeScript", "C# .NET", "UI/UX Design", "PostgreSQL", "Tailwind CSS", "RESTful APIs", "Agile", "QGIS", "Vanilla CSS", "Express.js", "In Silico Modeling", "NestJS", "Bioinformatics", "Data Analysis", "GIS Mapping Tools", "Github", "Figma", "JavaScript", "Next.js"
 ];
 
 const experienceList = [
   { title: "Computer Science Student", company: "University of Cebu", year: "2021 - Present" },
-  { title: "Freelance Developer", company: "Christian.dev", year: "2022 - Present" },
+  { title: "", company: "Christian.dev", year: "2022 - Present" },
   { title: "Environmental Science Project", company: "Coral Triangle Center", year: "2023 - 2024" },
   { title: "UI/UX Design Intern", company: "PixelCraft Studios", year: "2024" },
 ];
@@ -21,7 +21,7 @@ export default function AboutSection() {
       {/* 1. Pill Tag "Developer & Eco-Scientist" with icon */}
       <div className="flex items-center gap-2 px-4 py-1 rounded-full border border-neutral-low bg-midnight/30 text-neutral-high/90 text-sm font-medium tracking-wide mb-6 shadow-sm">
         <Target size={14} className="text-amethyst" />
-        DEVELOPER & ECO-SCIENTIST
+        DEVELOPER & DESIGNER
       </div>
 
       {/* 2. Main Large Heading */}
@@ -31,7 +31,7 @@ export default function AboutSection() {
 
       {/* 3. Muted Subtitle */}
       <p className="text-lg text-neutral-high/60 max-w-xl leading-relaxed text-center mb-20">
-        Bridging the gap between scalable Software Engineering and complex Environmental Science. My journey and expertise.
+        Bridging the gap between scalable Software Engineering and complex UI / UX Design. My journey and expertise.
       </p>
 
       {/* === MAIN CONTENT (TWO COLUMNS) === */}
@@ -62,7 +62,7 @@ export default function AboutSection() {
           
           {/* Specific Title/Bio */}
           <p className="text-neutral-high/70 text-lg mb-8 max-w-md">
-            I am a 3rd-year Computer Science student in University of Cebu, specializing in the intersection of technology and ecological research.
+            I am a 3rd-year Computer Science student in University of Cebu, specializing in the intersection of technology and designing.
           </p>
           
           {/* Social Icons - Customized with relevant links for Christian */}
@@ -104,7 +104,7 @@ export default function AboutSection() {
             
             {/* Introductory text block - tailored description from your original about section */}
             <p className="text-lg text-neutral-high/80 leading-relaxed max-w-xl">
-              I am a dedicated Web Designer & Developer based in the vibrant city of Berlin, Germany. I specialize in creative design with seamless technical execution to craft exceptional digital experiences. I bring an analytical and systematic approach to every project I touch.
+              I am a dedicated Web Designer & Developer based in the vibrant city of Cebu, Philippines. I specialize in creative design with seamless technical execution to craft exceptional digital experiences. Also the skills of turning the design into a executable program. I bring an analytical and systematic approach to every project I touch.
             </p>
             
             {/* Flow of skill tags - matching the pill shape/grays from the image */}
