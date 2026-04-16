@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Target, ArrowUpRight, Handshake } from 'lucide-react';
+import { Target, ArrowUpRight, Handshake, Mail, Phone, Linkedin, Github, Facebook, Instagram } from 'lucide-react';
 
 interface ContactData {
   name: string;
@@ -114,26 +114,65 @@ export default function ContactSection() {
 
         {/* --- RIGHT COLUMN: MOCK-UP BLANK TEMPLATE PANEL --- */}
         <div className="bg-[#080808]/60 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-3xl transition-all hover:border-white/15 flex flex-col h-full">
-          
-          <div className="w-full flex-grow min-h-[250px] bg-[#111] border border-white/5 rounded-2xl overflow-hidden relative flex items-center justify-center group cursor-pointer">
-            {/* Blank Placeholder Image */}
-            <img 
-              src="https://images.unsplash.com/photo-1598520106830-8c45c2f35d1f?q=80&w=600&auto=format&fit=crop&grayscale=true" 
-              alt="Grayscale portrait placeholder" 
-              className="w-full h-full object-cover opacity-30 grayscale mix-blend-overlay transition-all duration-700 group-hover:scale-105 group-hover:opacity-50" 
-            />
+    
             
-            <div className="absolute bottom-6 left-6 flex gap-3 pointer-events-auto">
-              <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all hover:bg-white hover:text-black">
-                <ArrowUpRight size={20} />
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full">
-                <span className="w-2 h-2 bg-jade rounded-full animate-pulse shadow-[0_0_8px_rgba(22,101,52,0.8)]"></span>
-                <span className="text-white text-sm font-medium">Available for work</span>
-              </div>
-            </div>
-          </div>
+            {/* Social Links Grid */}
+            <div className="w-full flex-grow grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              {/* Email */}
+              <a href="mailto:your.email@example.com" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+                <Mail size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+                <div>
+                  <h4 className="text-white font-medium text-sm">Email</h4>
+                  <p className="text-neutral-high/50 text-xs mt-1 truncate">christianosorno20@gmail.com</p>
+                </div>
+              </a>
 
+              {/* Phone */}
+              <a href="tel:+639000000000" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+                <Phone size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+                <div>
+                  <h4 className="text-white font-medium text-sm">Contact Number</h4>
+                  <p className="text-neutral-high/50 text-xs mt-1 truncate">+63 927 141 0824</p>
+                </div>
+              </a>
+
+              {/* LinkedIn */}
+              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+                <Linkedin size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+                <div>
+                  <h4 className="text-white font-medium text-sm">LinkedIn</h4>
+                  <p className="text-neutral-high/50 text-xs mt-1 truncate">in/christian-osorno-2742a4379/</p>
+                </div>
+              </a>
+
+              {/* GitHub */}
+              <a href="https://github.com/yourprofile" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+                <Github size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+                <div>
+                  <h4 className="text-white font-medium text-sm">GitHub</h4>
+                  <p className="text-neutral-high/50 text-xs mt-1 truncate">github.com/YCHANTAN</p>
+                </div>
+              </a>
+
+              {/* Facebook */}
+              <a href="https://facebook.com/yourprofile" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+                <Facebook size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+                <div>
+                  <h4 className="text-white font-medium text-sm">Facebook</h4>
+                  <p className="text-neutral-high/50 text-xs mt-1 truncate">Christian Osorno</p>
+                </div>
+              </a>
+
+              {/* Instagram */}
+              <a href="https://instagram.com/yourprofile" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+                <Instagram size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+                <div>
+                  <h4 className="text-white font-medium text-sm">Instagram</h4>
+                  <p className="text-neutral-high/50 text-xs mt-1 truncate">@betlowg_</p>
+                </div>
+              </a>
+            </div>
           <div className="flex items-center gap-4 mt-8 pt-8 border-t border-white/5">
             <div className="p-4 rounded-xl bg-[#111] border border-white/5">
               <Handshake size={22} className="text-neutral-high" />

@@ -74,7 +74,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* ======================================= */}
+        {/* ======================================= */} 
         {/* BOTTOM ROW: BENTO GRID OF IMAGES        */}
         {/* ======================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full pb-12">
