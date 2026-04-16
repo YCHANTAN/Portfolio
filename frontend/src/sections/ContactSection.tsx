@@ -16,15 +16,45 @@ export default function ContactSection() {
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // === NEW INTEGRATED SUBMIT FUNCTION ===
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); 
     setStatus('submitting');
     
-    // Simulating a network request
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' }); 
-    }, 2000);
+    try {
+      // Sending data to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY, 
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: "New Portfolio Contact Form Submission",
+          from_name: "Christian's Portfolio"
+        }),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' }); // Clear the form
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        console.error("Submission failed:", result);
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -48,7 +78,6 @@ export default function ContactSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-stretch">
         
         {/* --- LEFT COLUMN: GLASS CONTACT FORM --- */}
-        {/* Updated container to use the sleek dark frosted glass look from the projects section */}
         <div className="bg-[#080808]/60 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-3xl shadow-2xl flex flex-col transition-all hover:border-white/15">
           
           <p className="text-base text-neutral-high/60 leading-relaxed mb-10 max-w-md">
@@ -62,7 +91,6 @@ export default function ContactSection() {
                 id="name"
                 type="text"
                 placeholder="Christian Osorno"
-                // Transparent, blurry inputs
                 className="w-full bg-white/5 backdrop-blur-md border border-white/10 focus:border-white/30 focus:bg-white/10 outline-none p-4 rounded-2xl text-white placeholder:text-neutral-high/20 transition-all"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -104,75 +132,74 @@ export default function ContactSection() {
             </button>
 
             {status === 'success' && (
-              <p className="text-jade text-center font-medium mt-2">Message sent successfully!</p>
+              <p className="text-jade text-center font-medium mt-2">Message sent successfully! I'll get back to you soon.</p>
             )}
             {status === 'error' && (
-              <p className="text-crimson text-center font-medium mt-2">Something went wrong. Please try again.</p>
+              <p className="text-crimson text-center font-medium mt-2">Something went wrong. Please check your connection and try again.</p>
             )}
           </form>
         </div>
 
-        {/* --- RIGHT COLUMN: MOCK-UP BLANK TEMPLATE PANEL --- */}
+        {/* --- RIGHT COLUMN: SOCIAL LINKS & INFO --- */}
         <div className="bg-[#080808]/60 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-3xl transition-all hover:border-white/15 flex flex-col h-full">
-    
+          
+          <div className="w-full flex-grow grid grid-cols-1 sm:grid-cols-2 gap-4">
             
-            {/* Social Links Grid */}
-            <div className="w-full flex-grow grid grid-cols-1 sm:grid-cols-2 gap-4">
-              
-              {/* Email */}
-              <a href="mailto:your.email@example.com" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
-                <Mail size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
-                <div>
-                  <h4 className="text-white font-medium text-sm">Email</h4>
-                  <p className="text-neutral-high/50 text-xs mt-1 truncate">christianosorno20@gmail.com</p>
-                </div>
-              </a>
+            {/* Email */}
+            <a href="mailto:christianosorno20@gmail.com" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+              <Mail size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+              <div>
+                <h4 className="text-white font-medium text-sm">Email</h4>
+                <p className="text-neutral-high/50 text-xs mt-1 truncate">christianosorno20@gmail.com</p>
+              </div>
+            </a>
 
-              {/* Phone */}
-              <a href="tel:+639000000000" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
-                <Phone size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
-                <div>
-                  <h4 className="text-white font-medium text-sm">Contact Number</h4>
-                  <p className="text-neutral-high/50 text-xs mt-1 truncate">+63 927 141 0824</p>
-                </div>
-              </a>
+            {/* Phone */}
+            <a href="tel:+639271410824" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+              <Phone size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+              <div>
+                <h4 className="text-white font-medium text-sm">Contact Number</h4>
+                <p className="text-neutral-high/50 text-xs mt-1 truncate">+63 927 141 0824</p>
+              </div>
+            </a>
 
-              {/* LinkedIn */}
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
-                <Linkedin size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
-                <div>
-                  <h4 className="text-white font-medium text-sm">LinkedIn</h4>
-                  <p className="text-neutral-high/50 text-xs mt-1 truncate">in/christian-osorno-2742a4379/</p>
-                </div>
-              </a>
+            {/* LinkedIn */}
+            <a href="https://linkedin.com/in/christian-osorno-2742a4379/" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+              <Linkedin size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+              <div>
+                <h4 className="text-white font-medium text-sm">LinkedIn</h4>
+                <p className="text-neutral-high/50 text-xs mt-1 truncate">in/christian-osorno</p>
+              </div>
+            </a>
 
-              {/* GitHub */}
-              <a href="https://github.com/yourprofile" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
-                <Github size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
-                <div>
-                  <h4 className="text-white font-medium text-sm">GitHub</h4>
-                  <p className="text-neutral-high/50 text-xs mt-1 truncate">github.com/YCHANTAN</p>
-                </div>
-              </a>
+            {/* GitHub */}
+            <a href="https://github.com/YCHANTAN" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+              <Github size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+              <div>
+                <h4 className="text-white font-medium text-sm">GitHub</h4>
+                <p className="text-neutral-high/50 text-xs mt-1 truncate">github.com/YCHANTAN</p>
+              </div>
+            </a>
 
-              {/* Facebook */}
-              <a href="https://facebook.com/yourprofile" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
-                <Facebook size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
-                <div>
-                  <h4 className="text-white font-medium text-sm">Facebook</h4>
-                  <p className="text-neutral-high/50 text-xs mt-1 truncate">Christian Osorno</p>
-                </div>
-              </a>
+            {/* Facebook */}
+            <a href="https://facebook.com/christian.osorno.12" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+              <Facebook size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+              <div>
+                <h4 className="text-white font-medium text-sm">Facebook</h4>
+                <p className="text-neutral-high/50 text-xs mt-1 truncate">Christian Osorno</p>
+              </div>
+            </a>
 
-              {/* Instagram */}
-              <a href="https://instagram.com/yourprofile" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
-                <Instagram size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
-                <div>
-                  <h4 className="text-white font-medium text-sm">Instagram</h4>
-                  <p className="text-neutral-high/50 text-xs mt-1 truncate">@betlowg_</p>
-                </div>
-              </a>
-            </div>
+            {/* Instagram */}
+            <a href="https://instagram.com/betlowg_" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-[#111] border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all flex flex-col justify-between">
+              <Instagram size={22} className="text-neutral-high/50 group-hover:text-white transition-colors mb-4" />
+              <div>
+                <h4 className="text-white font-medium text-sm">Instagram</h4>
+                <p className="text-neutral-high/50 text-xs mt-1 truncate">@betlowg_</p>
+              </div>
+            </a>
+          </div>
+
           <div className="flex items-center gap-4 mt-8 pt-8 border-t border-white/5">
             <div className="p-4 rounded-xl bg-[#111] border border-white/5">
               <Handshake size={22} className="text-neutral-high" />
