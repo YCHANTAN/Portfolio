@@ -1,17 +1,6 @@
 import React from 'react';
 import { Monitor, Server, Database, Leaf, Target } from 'lucide-react';
-
-// Using a mix of stable icon packs to prevent import errors
-import { 
-  SiTypescript, 
-  SiReact, 
-  SiPostgresql, 
-  SiTailwindcss, 
-  SiSqlite, 
-  SiDotnet
-} from 'react-icons/si';
-import { FaNodeJs, FaGithub } from 'react-icons/fa';
-import { TbBrandCSharp } from 'react-icons/tb';
+import { skillTags } from '../types/skills';
 
 interface TagProps {
   icon: React.ReactNode;
@@ -25,44 +14,22 @@ const Tag: React.FC<TagProps> = ({ icon, label }) => (
   </div>
 );
 
-// Updated with the new, error-free icons
-const skillTags = [
-  { icon: <SiReact size={18} color="#61DAFB" />, label: 'React' },
-  { icon: <SiTypescript size={18} color="#3178C6" />, label: 'TypeScript' },
-  { icon: <FaNodeJs size={18} color="#339933" />, label: 'Node.js' },
-  { icon: <TbBrandCSharp size={18} color="#239120" />, label: 'C#' },
-  { icon: <SiDotnet size={18} color="#512BD4" />, label: '.NET 8' },
-  { icon: <SiPostgresql size={18} color="#4169E1" />, label: 'PostgreSQL' },
-  { icon: <SiSqlite size={18} color="#003B57" />, label: 'SQLite' },
-  { icon: <SiTailwindcss size={18} color="#06B6D4" />, label: 'Tailwind CSS' },
-  { icon: <FaGithub size={18} color="#FFFFFF" />, label: 'Git / GitHub' },
-];
-
 export default function SkillSection() {
   return (
     <section id="skills" className="py-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col items-center">
       
       {/* === TOP HEADER AREA === */}
-      <div className="w-full flex flex-col sm:flex-row justify-between sm:items-start gap-6 mb-16">
-        <div className="flex flex-col items-start gap-4">
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/3 backdrop-blur-md text-neutral-high/90 text-sm font-medium tracking-wide">
-            <Target size={14} className="text-amethyst" />
-            Technical Arsenal
-          </div>
-          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-neutral-high leading-none">
-            Software <span className="text-neutral-high/40">Engineering</span>
-          </h2>
-          <p className="text-lg text-neutral-high/50 max-w-xl leading-relaxed">
-            Explore the technologies and methodologies I use to build scalable applications and research models.
-          </p>
+      <div className="w-full flex flex-col items-start gap-4 mb-16">
+        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/3 backdrop-blur-md text-neutral-high/90 text-sm font-medium tracking-wide">
+          <Target size={14} className="text-amethyst" />
+          Technical Arsenal
         </div>
-        
-        <a 
-          href="#contact" 
-          className="px-8 py-3.5 bg-neutral-high text-charcoal hover:bg-white rounded-full font-semibold transition-all shadow-xl"
-        >
-          Contact Now
-        </a>
+        <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-neutral-high leading-none">
+          Software <span className="text-neutral-high/40">Engineering</span>
+        </h2>
+        <p className="text-lg text-neutral-high/50 max-w-xl leading-relaxed">
+          Explore the technologies and methodologies I use to build scalable applications and research models.
+        </p>
       </div>
 
       {/* === MAIN BENTO GRID === */}

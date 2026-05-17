@@ -1,29 +1,8 @@
 import React from 'react';
 import { 
-  Github, Linkedin, Mail, Twitter, Instagram, Dribbble, Target,
-  Code2, Cpu, Globe, Database, Palette, Layout, Server, Zap,
-  Terminal, Search, MapPin, BarChart3, Binary, Layers, Figma
+  Github, Linkedin, Mail, Twitter, Instagram, Dribbble, Target
 } from 'lucide-react';
-
-// Enhanced skills with icons and colors
-const skills = [
-  { name: "React", icon: <Globe size={14} />, color: "text-blue-400" },
-  { name: "TypeScript", icon: <Binary size={14} />, color: "text-blue-500" },
-  { name: "C# .NET", icon: <Cpu size={14} />, color: "text-purple-500" },
-  { name: "UI/UX Design", icon: <Palette size={14} />, color: "text-pink-400" },
-  { name: "PostgreSQL", icon: <Database size={14} />, color: "text-blue-300" },
-  { name: "Tailwind CSS", icon: <Layout size={14} />, color: "text-cyan-400" },
-  { name: "RESTful APIs", icon: <Server size={14} />, color: "text-green-400" },
-  { name: "Agile", icon: <Zap size={14} />, color: "text-yellow-400" },
-  { name: "QGIS", icon: <MapPin size={14} />, color: "text-emerald-500" },
-  { name: "Vanilla CSS", icon: <Code2 size={14} />, color: "text-orange-400" },
-  { name: "Express.js", icon: <Terminal size={14} />, color: "text-gray-300" },
-  { name: "In Silico Modeling", icon: <Search size={14} />, color: "text-indigo-400" },
-  { name: "NestJS", icon: <Layers size={14} />, color: "text-red-500" },
-  { name: "Bioinformatics", icon: <BarChart3 size={14} />, color: "text-lime-400" },
-  { name: "Github", icon: <Github size={14} />, color: "text-white" },
-  { name: "Figma", icon: <Figma size={14} />, color: "text-purple-400" }
-];
+import { skillTags } from '../types/skills';
 
 const experienceList = [
   { title: "Computer Science Student", company: "University of Cebu", year: "2021 - Present" },
@@ -78,7 +57,7 @@ export default function AboutSection() {
             I am a 3rd-year Computer Science student in University of Cebu, specializing in the intersection of technology and designing.
           </p>
           
-          <div className="flex gap-4 pt-1 mb-10">
+          <div className="flex gap-4 pt-1 mb-2">
             <a href="#" className="text-neutral-high/60 hover:text-amethyst transition-colors">
               <Github size={22} />
             </a>
@@ -98,13 +77,6 @@ export default function AboutSection() {
               <Dribbble size={22} />
             </a>
           </div>
-          
-          <a 
-            href="#contact" 
-            className="w-full text-center px-8 py-3 bg-neutral-high text-charcoal hover:bg-white rounded-xl font-semibold transition-all shadow-xl hover:-translate-y-1"
-          >
-            Connect with me
-          </a>
         </div>
 
         {/* --- RIGHT COLUMN: DETAILS CONTAINER --- */}
@@ -117,17 +89,17 @@ export default function AboutSection() {
               I am a dedicated Web Designer & Developer based in the vibrant city of Cebu, Philippines. I specialize in creative design with seamless technical execution to craft exceptional digital experiences. I bring an analytical and systematic approach to every project I touch.
             </p>
             
-            {/* Lively skill tags with icons and colors */}
+            {/* Unified skill tags synchronized with SkillSection */}
             <div className="flex flex-wrap gap-2.5">
-              {skills.map((skill, index) => (
+              {skillTags.map((skill, index) => (
                 <div 
                   key={index} 
                   className="flex items-center gap-2 px-3.5 py-2 bg-black/40 border border-white/5 text-neutral-high/90 text-sm font-medium rounded-xl hover:border-amethyst hover:bg-black/60 transition-all cursor-default group"
                 >
-                  <span className={`${skill.color} group-hover:scale-110 transition-transform`}>
+                  <span className="group-hover:scale-110 transition-transform" style={{ color: skill.icon.props.color }}>
                     {skill.icon}
                   </span>
-                  {skill.name}
+                  {skill.label}
                 </div>
               ))}
             </div>
