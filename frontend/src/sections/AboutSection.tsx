@@ -56,12 +56,12 @@ export default function AboutSection() {
         {/* --- LEFT COLUMN: PROFILE CARD --- */}
         <div className="bg-white/3 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-2xl flex flex-col transition-all hover:border-amethyst hover:-translate-y-2 group">
           
-          {/* Profile Image - Using Formal_Picture.png */}
-          <div className="w-full h-96 bg-black/80 border border-white/10 rounded-2xl overflow-hidden mb-6 flex items-center justify-center">
+          {/* Profile Image - Showing full picture without cropping */}
+          <div className="w-full h-[500px] bg-black/40 border border-white/10 rounded-2xl overflow-hidden mb-6 flex items-center justify-center">
             <img 
               src="/Formal_Picture.png" 
               alt="Christian Osorno" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
             />
           </div>
           

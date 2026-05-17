@@ -182,7 +182,7 @@ export default function ProjectsSection() {
       {selectedProject && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10">
           <div 
-            className="absolute inset-0 bg-black/90 backdrop-blur-xl"
+            className="absolute inset-0 bg-black/70 backdrop-blur-md"
             onClick={() => setSelectedProject(null)}
           ></div>
           
@@ -190,12 +190,12 @@ export default function ProjectsSection() {
             {/* Close Button */}
             <button 
               onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 z-10 p-3 rounded-full bg-black/40 text-white hover:bg-amethyst transition-all border border-white/10"
+              className="absolute top-6 right-6 z-10 p-2.5 rounded-full bg-black/40 text-white hover:bg-amethyst transition-all border border-white/10"
             >
-              <X size={24} />
+              <X size={20} />
             </button>
 
-            <div className="flex flex-col lg:grid lg:grid-cols-2 h-full overflow-y-auto">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
               {/* Left: Image */}
               <div className="h-64 lg:h-full bg-black relative">
                 <img 
@@ -207,50 +207,50 @@ export default function ProjectsSection() {
               </div>
 
               {/* Right: Content */}
-              <div className="p-8 md:p-12 flex flex-col gap-8">
+              <div className="p-8 md:p-10 flex flex-col gap-6">
                 <div>
-                  <div className="flex items-center gap-3 text-amethyst mb-4">
-                    <Info size={18} />
-                    <span className="text-xs font-bold tracking-[0.2em] uppercase">Project Overview</span>
+                  <div className="flex items-center gap-3 text-amethyst mb-3">
+                    <Info size={16} />
+                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Project Overview</span>
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-extrabold text-neutral-high tracking-tight leading-tight">
+                  <h3 className="text-3xl md:text-4xl font-extrabold text-neutral-high tracking-tight leading-tight">
                     {selectedProject.title}
                   </h3>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.tech.split('&').map((t, i) => (
-                    <span key={i} className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-medium text-neutral-high/70">
+                    <span key={i} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold tracking-wider uppercase text-neutral-high/60">
                       {t.trim()}
                     </span>
                   ))}
                 </div>
 
-                <p className="text-lg text-neutral-high/60 leading-relaxed italic">
+                <p className="text-base text-neutral-high/60 leading-relaxed italic">
                   "{selectedProject.description}"
                 </p>
 
-                <p className="text-neutral-high/80 text-base leading-relaxed">
+                <p className="text-neutral-high/80 text-sm leading-relaxed">
                   {selectedProject.longDescription}
                 </p>
 
-                <div className="mt-auto flex flex-col sm:flex-row gap-4 pt-10">
+                <div className="mt-auto flex flex-col sm:flex-row gap-3 pt-8">
                   <a 
                     href={selectedProject.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 py-4 bg-white text-black rounded-2xl font-bold hover:bg-amethyst hover:text-white transition-all shadow-xl group"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-neutral-high text-charcoal rounded-xl text-sm font-bold hover:bg-amethyst hover:text-white transition-all shadow-xl group"
                   >
-                    <Github size={20} />
-                    View Repository
-                    <ExternalLink size={16} className="opacity-50 group-hover:translate-x-0.5 transition-transform" />
+                    <Github size={18} />
+                    Repository
+                    <ExternalLink size={14} className="opacity-50 group-hover:translate-x-0.5 transition-transform" />
                   </a>
                   <a 
                     href="#contact"
                     onClick={() => setSelectedProject(null)}
-                    className="flex-1 flex items-center justify-center gap-2 py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-bold hover:bg-white/10 transition-all"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 text-white rounded-xl text-sm font-bold hover:bg-white/10 transition-all"
                   >
-                    Inquire Project
+                    Inquire Now
                   </a>
                 </div>
               </div>
@@ -259,31 +259,31 @@ export default function ProjectsSection() {
         </div>
       )}
 
-      {/* === BOTTOM BAR === */}
+      {/* === BOTTOM BAR (RESIZED TO BE THINNER) === */}
       <div className="max-w-7xl w-full px-6 md:px-12">
-        <div className="w-full bg-white/3 backdrop-blur-md border border-white/10 rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="flex items-center gap-6">
-            <div className="w-16 h-16 rounded-3xl bg-black/40 flex items-center justify-center border border-white/5 shadow-inner">
-              <Handshake size={32} className="text-amethyst" />
+        <div className="w-full bg-white/3 backdrop-blur-md border border-white/10 rounded-3xl p-5 md:p-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-black/40 flex items-center justify-center border border-white/5 shadow-inner">
+              <Handshake size={24} className="text-amethyst" />
             </div>
             <div>
-              <h4 className="text-neutral-high font-bold text-2xl tracking-tight">Open to collaboration</h4>
-              <p className="text-neutral-high/50 text-base mt-1">Currently seeking 240-hour internship opportunities.</p>
+              <h4 className="text-neutral-high font-bold text-lg tracking-tight">Open to collaboration</h4>
+              <p className="text-neutral-high/50 text-xs mt-0.5">Currently seeking 240-hour internship opportunities.</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 w-full md:w-auto">
+          <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
             <a 
               href="https://github.com/YCHANTAN" 
               target="_blank"
               rel="noreferrer"
-              className="flex-1 md:flex-none px-10 py-4 bg-black/40 hover:bg-black/60 border border-white/5 text-neutral-high rounded-2xl font-bold transition-all text-sm text-center"
+              className="flex-1 md:flex-none px-6 py-2.5 bg-black/40 hover:bg-black/60 border border-white/5 text-neutral-high rounded-xl font-bold transition-all text-xs text-center"
             >
-              See Github
+              Github
             </a>
             <a 
               href="#contact" 
-              className="flex-1 md:flex-none px-10 py-4 bg-neutral-high text-charcoal hover:bg-white rounded-2xl font-bold transition-all text-sm text-center shadow-2xl"
+              className="flex-1 md:flex-none px-6 py-2.5 bg-neutral-high text-charcoal hover:bg-white rounded-xl font-bold transition-all text-xs text-center shadow-lg"
             >
               Contact Now
             </a>
