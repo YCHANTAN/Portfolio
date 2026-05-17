@@ -2,7 +2,7 @@ import { ArrowUpRight, Sparkles } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen pt-32 pb-20 overflow-hidden">
       
       {/* Container to hold the top half and bottom half */}
       <div className="z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-24">

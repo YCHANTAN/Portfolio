@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './components/Header' // <-- 1. Import the new Header
+import Navbar from './components/Navbar'
 import HeroSection from './sections/HeroSection'
 import AboutSection from './sections/AboutSection'
 import ProjectsSection from './sections/ProjectsSection'
@@ -25,7 +25,7 @@ function App() {
 
       {/* ALL YOUR SECTIONS FOREGROUND */}
       <div className="relative z-10">
-        <Header /> {/* <-- 2. Place the Header here! */}
+        <Navbar />
         <HeroSection />
         <AboutSection />
         <ProjectsSection />
