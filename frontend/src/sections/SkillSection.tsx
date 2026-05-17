@@ -19,7 +19,7 @@ interface TagProps {
 }
 
 const Tag: React.FC<TagProps> = ({ icon, label }) => (
-  <div className="flex items-center gap-2.5 px-5 py-3 rounded-full border border-white/5 bg-[#0a0a0a] text-white text-sm font-medium tracking-wide shadow-sm transition-all hover:border-white/20 hover:bg-[#111]">
+  <div className="flex items-center gap-2.5 px-5 py-3 rounded-full border border-white/10 bg-white/3 backdrop-blur-md text-neutral-high text-sm font-medium tracking-wide shadow-sm transition-all hover:border-amethyst hover:bg-white/10">
     {icon}
     {label}
   </div>
@@ -45,11 +45,11 @@ export default function SkillSection() {
       {/* === TOP HEADER AREA === */}
       <div className="w-full flex flex-col sm:flex-row justify-between sm:items-start gap-6 mb-16">
         <div className="flex flex-col items-start gap-4">
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-[#0a0a0a] text-neutral-high/90 text-sm font-medium tracking-wide">
-            <Target size={14} className="text-neutral-high/70" />
+          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/3 backdrop-blur-md text-neutral-high/90 text-sm font-medium tracking-wide">
+            <Target size={14} className="text-amethyst" />
             Technical Arsenal
           </div>
-          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-none">
+          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-neutral-high leading-none">
             Software <span className="text-neutral-high/40">Engineering</span>
           </h2>
           <p className="text-lg text-neutral-high/50 max-w-xl leading-relaxed">
@@ -59,7 +59,7 @@ export default function SkillSection() {
         
         <a 
           href="#contact" 
-          className="px-8 py-3.5 bg-white text-black hover:bg-neutral-200 rounded-full font-semibold transition-all shadow-xl"
+          className="px-8 py-3.5 bg-neutral-high text-charcoal hover:bg-white rounded-full font-semibold transition-all shadow-xl"
         >
           Contact Now
         </a>
@@ -71,26 +71,26 @@ export default function SkillSection() {
         {/* --- LEFT COLUMN --- */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           
-          <div className="bg-[#080808] border border-white/5 p-8 rounded-3xl shadow-2xl flex flex-col transition-all hover:border-white/15 hover:bg-[#0c0c0c] min-h-[400px]">
+          <div className="bg-white/3 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-2xl flex flex-col transition-all hover:border-amethyst hover:-translate-y-2 min-h-[400px]">
             <div className="flex items-center gap-3 mb-4">
               <Monitor size={22} className="text-neutral-high" />
-              <h3 className="text-2xl font-bold text-white">Frontend & UI</h3>
+              <h3 className="text-2xl font-bold text-neutral-high">Frontend & UI</h3>
             </div>
             <p className="text-neutral-high/50 text-sm mb-10 max-w-sm">
               Designing breathtaking, user-centric interfaces that boost engagement and perfectly align with modern design principles.
             </p>
             <div className="flex flex-col gap-4 mt-auto">
-              <div className="w-full h-32 bg-[#111] border border-white/5 rounded-2xl"></div>
-              <div className="w-full h-24 bg-[#111] border border-white/5 rounded-2xl"></div>
+              <div className="w-full h-32 bg-black/40 border border-white/10 rounded-2xl"></div>
+              <div className="w-full h-24 bg-black/40 border border-white/10 rounded-2xl"></div>
             </div>
           </div>
 
-          <div className="bg-[#080808] border border-white/5 p-6 rounded-3xl flex items-center gap-6 transition-all hover:border-white/15 hover:bg-[#0c0c0c]">
-            <div className="p-4 rounded-xl bg-black border border-white/5">
+          <div className="bg-white/3 backdrop-blur-md border border-white/10 p-6 rounded-3xl flex items-center gap-6 transition-all hover:border-amethyst hover:-translate-y-1">
+            <div className="p-4 rounded-xl bg-black/40 border border-white/10">
               <Server size={22} className="text-neutral-high" />
             </div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl font-bold text-white">Backend Architecture</h3>
+              <h3 className="text-xl font-bold text-neutral-high">Backend Architecture</h3>
               <p className="text-neutral-high/50 text-sm">Building robust, scalable server-side solutions.</p>
             </div>
           </div>
@@ -100,27 +100,27 @@ export default function SkillSection() {
         {/* --- RIGHT COLUMN --- */}
         <div className="lg:col-span-7 flex flex-col gap-6">
           
-          <div className="bg-[#080808] border border-white/5 p-6 rounded-3xl flex items-center gap-6 transition-all hover:border-white/15 hover:bg-[#0c0c0c]">
-            <div className="p-4 rounded-xl bg-black border border-white/5">
+          <div className="bg-white/3 backdrop-blur-md border border-white/10 p-6 rounded-3xl flex items-center gap-6 transition-all hover:border-amethyst hover:-translate-y-1">
+            <div className="p-4 rounded-xl bg-black/40 border border-white/10">
               <Database size={22} className="text-neutral-high" />
             </div>
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl font-bold text-white">Database Management</h3>
+              <h3 className="text-xl font-bold text-neutral-high">Database Management</h3>
               <p className="text-neutral-high/50 text-sm">Structuring secure and efficient relational databases.</p>
             </div>
           </div>
 
-          <div className="bg-[#080808] border border-white/5 p-8 rounded-3xl flex flex-col transition-all hover:border-white/15 hover:bg-[#0c0c0c] min-h-[400px]">
+          <div className="bg-white/3 backdrop-blur-md border border-white/10 p-8 rounded-3xl flex flex-col transition-all hover:border-amethyst hover:-translate-y-2 min-h-[400px]">
             <div className="flex items-center gap-3 mb-4">
               <Leaf size={22} className="text-neutral-high" />
-              <h3 className="text-2xl font-bold text-white">In Silico & Eco-Modeling</h3>
+              <h3 className="text-2xl font-bold text-neutral-high">In Silico & Eco-Modeling</h3>
             </div>
             <p className="text-neutral-high/50 text-sm mb-10 max-w-xl">
               Bridging technology and ecology by bringing research to life with AI-assisted biodegradation modeling and computational biology.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-auto">
-              <div className="w-full aspect-[4/3] bg-[#111] border border-white/5 rounded-2xl"></div>
-              <div className="w-full aspect-[4/3] bg-[#111] border border-white/5 rounded-2xl"></div>
+              <div className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl"></div>
+              <div className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl"></div>
             </div>
           </div>
 
