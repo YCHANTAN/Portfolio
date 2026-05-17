@@ -13,40 +13,52 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'skills', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Offset for header height
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
+    const sections = ['home', 'about', 'projects', 'skills', 'contact'];
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -50% 0px', // Trigger when section is roughly in the middle
+      threshold: 0
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
   }, []);
+
+  // Helper to handle smooth click and immediate state update
+  const handleNavLinkClick = (href: string) => {
+    setActiveSection(href.substring(1));
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#080808]/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
         
         {/* === LOGO (Left) === */}
-        <a href="#home" className="flex items-center gap-2.5 group">
+        <a 
+          href="#home" 
+          onClick={() => handleNavLinkClick('#home')}
+          className="flex items-center gap-2.5 group"
+        >
           <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-all">
-            <Sparkles size={16} className="text-white" />
+            <Sparkles size={16} className={activeSection === 'home' ? 'text-amethyst' : 'text-white'} />
           </div>
-          <span className="text-xl font-semibold tracking-wide text-white">
+          <span className={`text-xl font-semibold tracking-wide transition-colors ${activeSection === 'home' ? 'text-amethyst' : 'text-white'}`}>
             Christian
           </span>
         </a>
@@ -57,9 +69,10 @@ export default function Navbar() {
             <a 
               key={link.name}
               href={link.href} 
-              className={`text-sm font-medium transition-colors hover:text-white ${
+              onClick={() => handleNavLinkClick(link.href)}
+              className={`text-sm font-medium transition-all duration-300 hover:text-white ${
                 activeSection === link.href.substring(1) 
-                  ? 'text-amethyst' 
+                  ? 'text-amethyst scale-110' 
                   : 'text-neutral-high/70'
               }`}
             >
@@ -72,9 +85,14 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <a 
             href="#contact" 
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 bg-[#111] hover:bg-[#222] hover:border-white/20 text-white transition-all group shadow-sm"
+            onClick={() => handleNavLinkClick('#contact')}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-full border transition-all group shadow-sm ${
+              activeSection === 'contact'
+                ? 'border-amethyst bg-amethyst/10 text-amethyst'
+                : 'border-white/10 bg-[#111] hover:bg-[#222] hover:border-white/20 text-white'
+            }`}
           >
-            <Sparkles size={16} className={`transition-colors ${activeSection === 'contact' ? 'text-amethyst' : 'text-neutral-high/70 group-hover:text-white'}`} />
+            <Sparkles size={16} className={activeSection === 'contact' ? 'text-amethyst' : 'text-neutral-high/70 group-hover:text-white'} />
             <span className="text-sm font-medium">Let's Connect</span>
           </a>
         </div>
@@ -97,7 +115,7 @@ export default function Navbar() {
               <a 
                 key={link.name}
                 href={link.href} 
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => handleNavLinkClick(link.href)}
                 className={`text-2xl font-bold tracking-tight transition-all ${
                   activeSection === link.href.substring(1) 
                     ? 'text-amethyst' 
@@ -109,8 +127,12 @@ export default function Navbar() {
             ))}
             <a 
               href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-4 flex items-center justify-center gap-2 py-4 bg-[#111] border border-white/10 text-white rounded-2xl font-bold uppercase tracking-widest text-xs"
+              onClick={() => handleNavLinkClick('#contact')}
+              className={`mt-4 flex items-center justify-center gap-2 py-4 border rounded-2xl font-bold uppercase tracking-widest text-xs transition-all ${
+                activeSection === 'contact'
+                  ? 'bg-amethyst border-amethyst text-white'
+                  : 'bg-[#111] border-white/10 text-white'
+              }`}
             >
               Let's Connect
               <Sparkles size={18} />
