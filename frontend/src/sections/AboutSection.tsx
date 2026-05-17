@@ -1,35 +1,51 @@
-import { Github, Linkedin, Mail, Twitter, Instagram, Dribbble, Target } from 'lucide-react';
+import React from 'react';
+import { 
+  Github, Linkedin, Mail, Twitter, Instagram, Dribbble, Target,
+  Code2, Cpu, Globe, Database, Palette, Layout, Server, Zap,
+  Terminal, Search, MapPin, BarChart3, Binary, Layers, Figma
+} from 'lucide-react';
 
-// Data for the tags and experience list (can be moved to a separate file or data folder)
-const skillsTags = [
-  "React", "TypeScript", "C# .NET", "UI/UX Design", "PostgreSQL", "Tailwind CSS", "RESTful APIs", "Agile", "QGIS", "Vanilla CSS", "Express.js", "In Silico Modeling", "NestJS", "Bioinformatics", "Data Analysis", "GIS Mapping Tools", "Github", "Figma", "JavaScript", "Next.js"
+// Enhanced skills with icons and colors
+const skills = [
+  { name: "React", icon: <Globe size={14} />, color: "text-blue-400" },
+  { name: "TypeScript", icon: <Binary size={14} />, color: "text-blue-500" },
+  { name: "C# .NET", icon: <Cpu size={14} />, color: "text-purple-500" },
+  { name: "UI/UX Design", icon: <Palette size={14} />, color: "text-pink-400" },
+  { name: "PostgreSQL", icon: <Database size={14} />, color: "text-blue-300" },
+  { name: "Tailwind CSS", icon: <Layout size={14} />, color: "text-cyan-400" },
+  { name: "RESTful APIs", icon: <Server size={14} />, color: "text-green-400" },
+  { name: "Agile", icon: <Zap size={14} />, color: "text-yellow-400" },
+  { name: "QGIS", icon: <MapPin size={14} />, color: "text-emerald-500" },
+  { name: "Vanilla CSS", icon: <Code2 size={14} />, color: "text-orange-400" },
+  { name: "Express.js", icon: <Terminal size={14} />, color: "text-gray-300" },
+  { name: "In Silico Modeling", icon: <Search size={14} />, color: "text-indigo-400" },
+  { name: "NestJS", icon: <Layers size={14} />, color: "text-red-500" },
+  { name: "Bioinformatics", icon: <BarChart3 size={14} />, color: "text-lime-400" },
+  { name: "Github", icon: <Github size={14} />, color: "text-white" },
+  { name: "Figma", icon: <Figma size={14} />, color: "text-purple-400" }
 ];
 
 const experienceList = [
   { title: "Computer Science Student", company: "University of Cebu", year: "2021 - Present" },
-  { title: "", company: "Christian.dev", year: "2022 - Present" },
+  { title: "Freelance Designer", company: "Christian.dev", year: "2022 - Present" },
   { title: "Environmental Science Project", company: "Coral Triangle Center", year: "2023 - 2024" },
   { title: "UI/UX Design Intern", company: "PixelCraft Studios", year: "2024" },
 ];
 
 export default function AboutSection() {
   return (
-    // Updated container: matching the top heading structure of the image
     <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col items-center">
       
       {/* === TOP HEADER AREA === */}
-      {/* 1. Pill Tag "Developer & Eco-Scientist" with icon */}
-      <div className="flex items-center gap-2 px-4 py-1 rounded-full border border-neutral-low bg-midnight/30 text-neutral-high/90 text-sm font-medium tracking-wide mb-6 shadow-sm">
+      <div className="flex items-center gap-2 px-4 py-1 rounded-full border border-white/10 bg-white/3 backdrop-blur-md text-neutral-high/90 text-sm font-medium tracking-wide mb-6 shadow-sm">
         <Target size={14} className="text-amethyst" />
         DEVELOPER & DESIGNER
       </div>
 
-      {/* 2. Main Large Heading */}
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-high leading-none text-center mb-5">
         Christian Osorno, <span className="text-neutral-high/40">Your Developer</span>
       </h2>
 
-      {/* 3. Muted Subtitle */}
       <p className="text-lg text-neutral-high/60 max-w-xl leading-relaxed text-center mb-20">
         Bridging the gap between scalable Software Engineering and complex UI / UX Design. My journey and expertise.
       </p>
@@ -38,34 +54,30 @@ export default function AboutSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full items-start">
         
         {/* --- LEFT COLUMN: PROFILE CARD --- */}
-        <div className="bg-midnight/80 backdrop-blur-md border border-neutral-low p-8 rounded-3xl shadow-2xl flex flex-col transition-all hover:border-amethyst hover:-translate-y-2">
+        <div className="bg-white/3 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-2xl flex flex-col transition-all hover:border-amethyst hover:-translate-y-2 group">
           
-          {/* Profile Image - Placeholder using grayscale portait from image */}
-          <div className="w-full h-80 bg-black/50 border border-neutral-low rounded-2xl overflow-hidden mb-6 flex items-center justify-center">
+          {/* Profile Image - Using Formal_Picture.png */}
+          <div className="w-full h-96 bg-black/80 border border-white/10 rounded-2xl overflow-hidden mb-6 flex items-center justify-center">
             <img 
-              src="https://images.unsplash.com/photo-1531123897727-8f129e16fd8c?q=80&w=600&auto=format&fit=crop" 
-              alt="Grayscale portrait" 
-              className="w-full h-full object-cover opacity-80" 
+              src="/Formal_Picture.png" 
+              alt="Christian Osorno" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
             />
           </div>
           
-          {/* Muted Status: Available for Work */}
           <div className="flex items-center gap-2 text-neutral-high/50 text-sm mb-4">
             <span className="w-2 h-2 bg-jade rounded-full animate-pulse shadow-[0_0_8px_rgba(22,101,52,0.8)]"></span>
             <span>Available for new opportunities</span>
           </div>
           
-          {/* Bold Name/Intro Heading */}
           <h3 className="text-3xl font-bold text-neutral-high mb-3">
             Hello, I'm Christian Osorno
           </h3>
           
-          {/* Specific Title/Bio */}
           <p className="text-neutral-high/70 text-lg mb-8 max-w-md">
             I am a 3rd-year Computer Science student in University of Cebu, specializing in the intersection of technology and designing.
           </p>
           
-          {/* Social Icons - Customized with relevant links for Christian */}
           <div className="flex gap-4 pt-1 mb-10">
             <a href="#" className="text-neutral-high/60 hover:text-amethyst transition-colors">
               <Github size={22} />
@@ -87,7 +99,6 @@ export default function AboutSection() {
             </a>
           </div>
           
-          {/* Main "Connect With Me" button */}
           <a 
             href="#contact" 
             className="w-full text-center px-8 py-3 bg-neutral-high text-charcoal hover:bg-white rounded-xl font-semibold transition-all shadow-xl hover:-translate-y-1"
@@ -100,30 +111,32 @@ export default function AboutSection() {
         <div className="flex flex-col gap-10">
           
           {/* Introductory Paragraph and Skills Tag Row */}
-          <div className="bg-midnight/30 backdrop-blur-sm border border-neutral-low p-8 rounded-3xl flex flex-col gap-8 transition-all hover:border-amethyst hover:-translate-y-2">
+          <div className="bg-white/3 backdrop-blur-md border border-white/10 p-8 rounded-3xl flex flex-col gap-8 transition-all hover:border-amethyst hover:-translate-y-2">
             
-            {/* Introductory text block - tailored description from your original about section */}
             <p className="text-lg text-neutral-high/80 leading-relaxed max-w-xl">
-              I am a dedicated Web Designer & Developer based in the vibrant city of Cebu, Philippines. I specialize in creative design with seamless technical execution to craft exceptional digital experiences. Also the skills of turning the design into a executable program. I bring an analytical and systematic approach to every project I touch.
+              I am a dedicated Web Designer & Developer based in the vibrant city of Cebu, Philippines. I specialize in creative design with seamless technical execution to craft exceptional digital experiences. I bring an analytical and systematic approach to every project I touch.
             </p>
             
-            {/* Flow of skill tags - matching the pill shape/grays from the image */}
-            <div className="flex flex-wrap gap-3">
-              {skillsTags.map((tag, index) => (
-                <span 
+            {/* Lively skill tags with icons and colors */}
+            <div className="flex flex-wrap gap-2.5">
+              {skills.map((skill, index) => (
+                <div 
                   key={index} 
-                  className="px-4 py-2 bg-charcoal border border-neutral-low text-neutral-high text-sm font-medium rounded-full"
+                  className="flex items-center gap-2 px-3.5 py-2 bg-black/40 border border-white/5 text-neutral-high/90 text-sm font-medium rounded-xl hover:border-amethyst hover:bg-black/60 transition-all cursor-default group"
                 >
-                  {tag}
-                </span>
+                  <span className={`${skill.color} group-hover:scale-110 transition-transform`}>
+                    {skill.icon}
+                  </span>
+                  {skill.name}
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Experience List - matching the clean list style with separating borders */}
-          <div className="bg-midnight/30 backdrop-blur-sm border border-neutral-low p-8 rounded-3xl flex flex-col gap-6 transition-all hover:border-amethyst hover:-translate-y-2">
+          {/* Experience List */}
+          <div className="bg-white/3 backdrop-blur-md border border-white/10 p-8 rounded-3xl flex flex-col gap-6 transition-all hover:border-amethyst hover:-translate-y-2">
             {experienceList.map((entry, index) => (
-              <div key={index} className={`pb-6 border-b border-neutral-low ${index === experienceList.length - 1 ? 'border-b-0 pb-0' : ''}`}>
+              <div key={index} className={`pb-6 border-b border-white/5 ${index === experienceList.length - 1 ? 'border-b-0 pb-0' : ''}`}>
                 <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
                   <div className="flex flex-col">
                     <h4 className="text-xl font-bold text-neutral-high">{entry.title}</h4>
