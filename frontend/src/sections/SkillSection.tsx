@@ -1,5 +1,5 @@
-import React from 'react';
-import { Monitor, Server, Database, Leaf, Target } from 'lucide-react';
+import React, { useState } from 'react';
+import { Monitor, Server, Database, Leaf, Target, X } from 'lucide-react';
 import { skillTags } from '../types/skills';
 
 interface TagProps {
@@ -15,6 +15,8 @@ const Tag: React.FC<TagProps> = ({ icon, label }) => (
 );
 
 export default function SkillSection() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <section id="skills" className="py-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col items-center">
       
@@ -47,8 +49,24 @@ export default function SkillSection() {
               Designing breathtaking, user-centric interfaces that boost engagement and perfectly align with modern design principles.
             </p>
             <div className="flex flex-col gap-4 mt-auto">
-              <div className="w-full h-32 bg-black/40 border border-white/10 rounded-2xl"></div>
-              <div className="w-full h-24 bg-black/40 border border-white/10 rounded-2xl"></div>
+              <div 
+                onClick={() => setSelectedImage('/Visionary-Design.png')}
+                className="w-full h-32 bg-black/40 border border-white/10 rounded-2xl overflow-hidden relative cursor-pointer group/img"
+              >
+                <img src="/Visionary-Design.png" alt="Frontend Preview" className="w-full h-full object-cover object-top opacity-50 group-hover/img:opacity-100 transition-all duration-500 group-hover/img:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                   <p className="text-white text-[10px] font-bold tracking-widest uppercase">View Full Design</p>
+                </div>
+              </div>
+              <div 
+                onClick={() => setSelectedImage('/SkillSection-UI.png')}
+                className="w-full h-24 bg-black/40 border border-white/10 rounded-2xl overflow-hidden relative cursor-pointer group/img"
+              >
+                <img src="/SkillSection-UI.png" alt="UI Design" className="w-full h-full object-cover object-top opacity-50 group-hover/img:opacity-100 transition-all duration-500 group-hover/img:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                   <p className="text-white text-[10px] font-bold tracking-widest uppercase">View Details</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -77,7 +95,7 @@ export default function SkillSection() {
             </div>
           </div>
 
-          <div className="bg-white/3 backdrop-blur-md border border-white/10 p-8 rounded-3xl flex flex-col transition-all hover:border-amethyst hover:-translate-y-2 min-h-[400px]">
+          <div className="group bg-white/3 backdrop-blur-md border border-white/10 p-8 rounded-3xl flex flex-col transition-all hover:border-amethyst hover:-translate-y-2 min-h-[400px]">
             <div className="flex items-center gap-3 mb-4">
               <Leaf size={22} className="text-neutral-high" />
               <h3 className="text-2xl font-bold text-neutral-high">In Silico & Eco-Modeling</h3>
@@ -86,8 +104,18 @@ export default function SkillSection() {
               Bridging technology and ecology by bringing research to life with AI-assisted biodegradation modeling and computational biology.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-auto">
-              <div className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl"></div>
-              <div className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl"></div>
+              <div className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl relative overflow-hidden flex items-center justify-center">
+                 <div className="w-12 h-12 border-2 border-amethyst/30 rounded-full animate-spin-slow"></div>
+                 <div className="absolute inset-0 bg-gradient-to-br from-amethyst/10 to-transparent"></div>
+              </div>
+              <div className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl relative overflow-hidden flex items-center justify-center">
+                 <div className="flex gap-1 items-end h-8">
+                    <div className="w-1.5 h-4 bg-amethyst/40 rounded-full animate-[bounce_1s_infinite]"></div>
+                    <div className="w-1.5 h-8 bg-amethyst/60 rounded-full animate-[bounce_1.2s_infinite]"></div>
+                    <div className="w-1.5 h-6 bg-amethyst/50 rounded-full animate-[bounce_1.1s_infinite]"></div>
+                 </div>
+                 <div className="absolute inset-0 bg-gradient-to-tl from-amethyst/10 to-transparent"></div>
+              </div>
             </div>
           </div>
 
@@ -101,6 +129,27 @@ export default function SkillSection() {
           <Tag key={index} icon={tag.icon} label={tag.label} />
         ))}
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-10"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-amethyst transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={24} />
+          </button>
+          <img 
+            src={selectedImage} 
+            alt="Full view" 
+            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl animate-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
     </section>
   );
