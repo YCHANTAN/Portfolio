@@ -182,7 +182,7 @@ export default function ContactSection() {
             </a>
 
             {/* Facebook */}
-            <a href="https://facebook.com/christian.osorno.12" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-black/40 border border-white/10 hover:bg-black/60 hover:border-amethyst transition-all flex flex-col justify-between">
+            <a href="https://www.facebook.com/localz123" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-black/40 border border-white/10 hover:bg-black/60 hover:border-amethyst transition-all flex flex-col justify-between">
               <Facebook size={22} className="text-neutral-high/50 group-hover:text-amethyst transition-colors mb-4" />
               <div>
                 <h4 className="text-neutral-high font-bold text-sm">Facebook</h4>
@@ -191,7 +191,7 @@ export default function ContactSection() {
             </a>
 
             {/* Instagram */}
-            <a href="https://instagram.com/betlowg_" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-black/40 border border-white/10 hover:bg-black/60 hover:border-amethyst transition-all flex flex-col justify-between">
+            <a href="https://www.instagram.com/betlowg__/" target="_blank" rel="noreferrer" className="group p-5 rounded-2xl bg-black/40 border border-white/10 hover:bg-black/60 hover:border-amethyst transition-all flex flex-col justify-between">
               <Instagram size={22} className="text-neutral-high/50 group-hover:text-amethyst transition-colors mb-4" />
               <div>
                 <h4 className="text-neutral-high font-bold text-sm">Instagram</h4>
