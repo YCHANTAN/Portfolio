@@ -104,17 +104,23 @@ export default function SkillSection() {
               Bridging technology and ecology by bringing research to life with AI-assisted biodegradation modeling and computational biology.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-auto">
-              <div className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl relative overflow-hidden flex items-center justify-center">
-                 <div className="w-12 h-12 border-2 border-amethyst/30 rounded-full animate-spin-slow"></div>
-                 <div className="absolute inset-0 bg-gradient-to-br from-amethyst/10 to-transparent"></div>
+              <div 
+                onClick={() => setSelectedImage('/Molecule.jpg')}
+                className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl relative overflow-hidden cursor-pointer group/img"
+              >
+                <img src="/Molecule.jpg" alt="Molecule Modeling" className="w-full h-full object-cover opacity-50 group-hover/img:opacity-100 transition-all duration-500 group-hover/img:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                   <p className="text-white text-[10px] font-bold tracking-widest uppercase text-center px-2">View Molecule</p>
+                </div>
               </div>
-              <div className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl relative overflow-hidden flex items-center justify-center">
-                 <div className="flex gap-1 items-end h-8">
-                    <div className="w-1.5 h-4 bg-amethyst/40 rounded-full animate-[bounce_1s_infinite]"></div>
-                    <div className="w-1.5 h-8 bg-amethyst/60 rounded-full animate-[bounce_1.2s_infinite]"></div>
-                    <div className="w-1.5 h-6 bg-amethyst/50 rounded-full animate-[bounce_1.1s_infinite]"></div>
-                 </div>
-                 <div className="absolute inset-0 bg-gradient-to-tl from-amethyst/10 to-transparent"></div>
+              <div 
+                onClick={() => setSelectedImage('/Ocean.jpg')}
+                className="w-full aspect-[4/3] bg-black/40 border border-white/10 rounded-2xl relative overflow-hidden cursor-pointer group/img"
+              >
+                <img src="/Ocean.jpg" alt="Eco Modeling" className="w-full h-full object-cover opacity-50 group-hover/img:opacity-100 transition-all duration-500 group-hover/img:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                   <p className="text-white text-[10px] font-bold tracking-widest uppercase text-center px-2">View Research</p>
+                </div>
               </div>
             </div>
           </div>
