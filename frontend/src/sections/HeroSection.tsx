@@ -1,15 +1,15 @@
-import { ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Sparkles, X } from 'lucide-react';
+import { useState } from 'react';
 
 export default function HeroSection() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <section id="home" className="relative min-h-screen pt-32 pb-20 overflow-hidden">
       
       {/* Container to hold the top half and bottom half */}
       <div className="z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-24">
-
-        {/* ======================================= */}
-        {/* TOP ROW: INTRO TEXT & FLOATING CARDS    */}
-        {/* ======================================= */}
+        {/* ... (existing top row content) */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-8">
           
           {/* Left Side: Text Content */}
@@ -83,42 +83,75 @@ export default function HeroSection() {
         {/* ======================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full pb-12">
           
-          {/* Placeholder Box 1 */}
-          <div className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden flex items-center justify-center cursor-pointer transition-all hover:border-amethyst">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-            <p className="relative z-10 text-neutral-high/30 font-bold tracking-[0.2em] text-xs uppercase">Visionary Design</p>
+          {/* Visionary Design */}
+          <div 
+            onClick={() => setSelectedImage('/Visionary-Design.png')}
+            className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden cursor-pointer transition-all hover:border-amethyst"
+          >
+            <img 
+              src="/Visionary-Design.png" 
+              alt="Visionary Design" 
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-charcoal/40 to-transparent"></div>
+            <p className="absolute top-8 left-8 z-10 text-neutral-high font-bold tracking-[0.2em] text-xs uppercase">Visionary Design</p>
             
-            <div className="absolute bottom-6 left-6 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all group-hover:bg-amethyst group-hover:scale-110">
+            <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all group-hover:bg-amethyst group-hover:scale-110">
               <ArrowUpRight size={20} />
             </div>
           </div>
 
-          {/* Placeholder Box 2 */}
-          <div className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden flex items-center justify-center cursor-pointer transition-all hover:border-amethyst">
-            <div className="absolute inset-0 bg-gradient-to-bl from-white/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-             <p className="relative z-10 text-neutral-high/30 font-bold tracking-[0.2em] text-xs uppercase">Scalable Code</p>
+          {/* Scalable Code */}
+          <div 
+            onClick={() => setSelectedImage('/Scalable-Code.png')}
+            className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden cursor-pointer transition-all hover:border-amethyst"
+          >
+            <img 
+              src="/Scalable-Code.png" 
+              alt="Scalable Code" 
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+            />
+            <div className="absolute inset-0 bg-gradient-to-bl from-charcoal/40 to-transparent"></div>
+             <p className="absolute top-8 left-8 z-10 text-neutral-high font-bold tracking-[0.2em] text-xs uppercase">Scalable Code</p>
             
-            <div className="absolute bottom-6 left-6 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all group-hover:bg-amethyst group-hover:scale-110">
+            <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all group-hover:bg-amethyst group-hover:scale-110">
               <ArrowUpRight size={20} />
             </div>
           </div>
 
-          {/* Placeholder Box 3 */}
-          <div className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden flex items-center justify-center cursor-pointer transition-all hover:border-amethyst">
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-             <p className="relative z-10 text-neutral-high/30 font-bold tracking-[0.2em] text-xs uppercase">Eco-Innovation</p>
+          {/* Eco-Innovation (3D Mock) */}
+          <div className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden cursor-default transition-all hover:border-amethyst">
+            <div className="absolute inset-0 bg-gradient-to-tr from-amethyst/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
             
-            <div className="absolute bottom-6 left-6 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all group-hover:bg-amethyst group-hover:scale-110">
-              <ArrowUpRight size={20} />
+            {/* 3D Mockup Elements */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+               <div className="relative w-48 h-48">
+                  <div className="absolute inset-0 border-2 border-amethyst/30 rounded-full animate-[pulse_4s_infinite]"></div>
+                  <div className="absolute inset-4 border border-white/20 rounded-full rotate-45"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-amethyst/40 rounded-full blur-2xl"></div>
+                    <div className="w-8 h-8 bg-white/80 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.5)]"></div>
+                  </div>
+               </div>
             </div>
+
+             <p className="absolute top-8 left-8 z-10 text-neutral-high font-bold tracking-[0.2em] text-xs uppercase">Eco-Innovation</p>
           </div>
 
-          {/* Placeholder Box 4 */}
-          <div className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden flex items-center justify-center cursor-pointer transition-all hover:border-amethyst">
-            <div className="absolute inset-0 bg-gradient-to-tl from-white/5 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-             <p className="relative z-10 text-neutral-high/30 font-bold tracking-[0.2em] text-xs uppercase">User Centricity</p>
+          {/* User Centricity */}
+          <div 
+            onClick={() => setSelectedImage('/User-Centricity.jpg')}
+            className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden cursor-pointer transition-all hover:border-amethyst"
+          >
+            <img 
+              src="/User-Centricity.jpg" 
+              alt="User Centricity" 
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tl from-charcoal/40 to-transparent"></div>
+             <p className="absolute top-8 left-8 z-10 text-neutral-high font-bold tracking-[0.2em] text-xs uppercase">User Centricity</p>
             
-            <div className="absolute bottom-6 left-6 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all group-hover:bg-amethyst group-hover:scale-110">
+            <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all group-hover:bg-amethyst group-hover:scale-110">
               <ArrowUpRight size={20} />
             </div>
           </div>
@@ -126,6 +159,27 @@ export default function HeroSection() {
         </div>
 
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-10"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-amethyst transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={24} />
+          </button>
+          <img 
+            src={selectedImage} 
+            alt="Full view" 
+            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl animate-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }
