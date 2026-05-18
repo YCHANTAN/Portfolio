@@ -24,7 +24,7 @@ const projects: Project[] = [
     tech: "React & TypeScript",
     icon: <ShoppingCart size={24} className="text-neutral-high" />,
     github: "https://github.com/YCHANTAN",
-    image: "https://images.unsplash.com/photo-1545173168-9f1947e8015e?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const projects: Project[] = [
     tech: "React & Node.js",
     icon: <TerminalSquare size={24} className="text-neutral-high" />,
     github: "https://github.com/YCHANTAN",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const projects: Project[] = [
     tech: "Data Analysis",
     icon: <Leaf size={24} className="text-neutral-high" />,
     github: "https://github.com/YCHANTAN",
-    image: "https://images.unsplash.com/photo-1484291470158-b8f8d608850d?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ const projects: Project[] = [
     tech: "Bioinformatics",
     icon: <Dna size={24} className="text-neutral-high" />,
     github: "https://github.com/YCHANTAN",
-    image: "https://images.unsplash.com/photo-1532187875605-1ef6c237a145?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1200&auto=format&fit=crop" // 3D Molecular/Network visualization
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ const projects: Project[] = [
     tech: "React & AI",
     icon: <TerminalSquare size={24} className="text-neutral-high" />,
     github: "https://github.com/YCHANTAN",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
   },
   {
     id: 6,
@@ -74,7 +74,7 @@ const projects: Project[] = [
     tech: "UI/UX & Figma",
     icon: <ShoppingCart size={24} className="text-neutral-high" />,
     github: "https://github.com/YCHANTAN",
-    image: "https://images.unsplash.com/photo-1526367790999-0150786486a9?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop" // Professional Mobile App Mockup
   }
 ];
 
