@@ -9,7 +9,7 @@ export default function HeroSection() {
       
       {/* Container to hold the top half and bottom half */}
       <div className="z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col gap-24">
-        {/* ... (existing top row content) */}
+        {/* ... (rest of content) */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-8">
           
           {/* Left Side: Text Content */}
@@ -119,23 +119,22 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Eco-Innovation (3D Mock) */}
-          <div className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden cursor-default transition-all hover:border-amethyst">
-            <div className="absolute inset-0 bg-gradient-to-tr from-amethyst/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
-            
-            {/* 3D Mockup Elements */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-               <div className="relative w-48 h-48">
-                  <div className="absolute inset-0 border-2 border-amethyst/30 rounded-full animate-[pulse_4s_infinite]"></div>
-                  <div className="absolute inset-4 border border-white/20 rounded-full rotate-45"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-amethyst/40 rounded-full blur-2xl"></div>
-                    <div className="w-8 h-8 bg-white/80 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.5)]"></div>
-                  </div>
-               </div>
-            </div>
-
+          {/* Eco-Innovation */}
+          <div 
+            onClick={() => setSelectedImage('/Molecule.jpg')}
+            className="group relative w-full aspect-[4/3] md:aspect-video bg-white/3 border border-white/10 rounded-[2.5rem] overflow-hidden cursor-pointer transition-all hover:border-amethyst"
+          >
+            <img 
+              src="/Molecule.jpg" 
+              alt="Eco-Innovation" 
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-amethyst/20 to-transparent"></div>
              <p className="absolute top-8 left-8 z-10 text-neutral-high font-bold tracking-[0.2em] text-xs uppercase">Eco-Innovation</p>
+            
+            <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white transition-all group-hover:bg-amethyst group-hover:scale-110">
+              <ArrowUpRight size={20} />
+            </div>
           </div>
 
           {/* User Centricity */}
@@ -183,3 +182,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
